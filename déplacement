@@ -1,9 +1,9 @@
 void deplacer_snoopy(char matrice[10][20]) { //On affiche le plateau comme s'il était avec des coordonnées permetant des deplacements cibles
 
     int i, j;
-    char mat[10][20];
+    char mat[12][20];
     // Recherche de la position de snoopy
-    for (i = 0; i < 10; i++) {
+    for (i = 0; i < 12; i++) {
         for (j = 0; j < 20; j++) {
             if (mat[i][j] == 8) {
                 x = i;
@@ -18,62 +18,76 @@ void deplacer_snoopy(char matrice[10][20]) { //On affiche le plateau comme s'il 
     while (1) {
 
         // Affichage de la matrice
-        for (i = 0; i < 10; i++) {
+        for (i = 0; i < 12; i++) {
 
             for (j = 0; j < 20; j++) {
-
-                if (i == x && j == y) {
-                    printf("%c\x20", 0xB); // Caractère Snoopy
-                }
 
                 //cases vides
                 if (mat[i][j] == 0){
                     printf("%c\x20", 0x0);
                 }
 
-                //blocs cassables
+                //plan de travail
 
                 if (mat[i][j] == 1){
                     printf("%c\x20", 0x6);
                 }
 
-                //blocs poussable
+                //four
 
                 if (mat[i][j] == 2){
                     printf("%c\x20", 0x1A);
                 }
 
-                //blocs piégé
+                //friteuse
 
                 if (mat[i][j] == 3){
                     printf("%c\x20", 0x5);
                 }
 
-                //blocs incassables
+                //boite à tomates brut
 
                 if (mat[i][j] == 4){
                     printf("%c\x20", '#');
                 }
 
-                //blocs disparition/apparition
+                //boite à oignon brut
 
                 if (mat[i][j] == 5){
                     printf("%c\x20", 0xA);
                 }
 
-                //blocs de tapis roulants
+                //boite à salade brut
 
                 if (mat[i][j] == 6){
                     printf("%c\x20", '=');
                 }
 
-                /*balle
+                //boite à patate brut
 
                 if (mat[i][j] == 7){
                     printf("%c\x20", 'o');
-                }*/
+                }
 
-                //oiseaux
+                //boite à steak brut
+
+                if (mat[i][j] == 9){
+                    printf("%c\x20", 0xE);
+                }
+
+                //boite pain à burger
+
+                if (mat[i][j] == 9){
+                    printf("%c\x20", 0xE);
+                }
+
+                //Boite de sauce Barbecue
+
+                if (mat[i][j] == 9){
+                    printf("%c\x20", 0xE);
+                }
+
+                //boite pain à burger
 
                 if (mat[i][j] == 9){
                     printf("%c\x20", 0xE);
