@@ -1,0 +1,62 @@
+void affichage_plateau(int niveau) {
+    int curseur = 0;
+    FILE *fichier = NULL; // appelle du fichier par l'adresse
+    int i, j;
+    int caractere;
+
+    switch (niveau) {       // choix du fichier .txt à ouvrir en fonction du niveau désiré
+
+        case 1 : {
+            fichier = fopen("niveau1.txt", "r");    // le mode r = reading donc uniquement lecture pas de modification apportée au fichier
+            break;
+        }
+
+        case 2 : {
+            fichier = fopen("niveau2.txt", "r");
+            break;
+        }
+
+        case 3 : {
+            fichier = fopen("niveau3.txt", "r");
+            break;
+        }
+
+        default : {
+            fichier = NULL;
+        }
+
+    }
+
+    if (fichier == NULL) { // on vérifie que le fichier est bien ouvert sion on affiche un message d'erreur
+        printf("impossible d'ouvrir le fichier ");
+    }
+
+    for (i = 0; i < 10; i++) {
+        for (j = 0; j < 20; j++) {
+            curseur = fgetc(fichier); // fgetc premet de lire un caractere du fichier txt
+            while (curseur != EOF && (curseur < '0' || curseur >'9')) { // EOF est renvoyé par getfc si un caractère d'échappement est atteint (caractere autre qu'un chiffre)
+                if (curseur == '\n') {
+                    curseur = fgetc(fichier);
+                } else {
+                    curseur = fgetc(fichier);
+                }
+            }// si c'est un caractère d'échappement ou autre chose qu'un chifrfre on ne l'ajoute pas à notre matrice
+
+            if (curseur == EOF) {// si on a un cractere d'échappement on fait rien
+                break;
+            }
+
+            caractere = curseur - '0'; // conversion du char curseur en int car notre matrice est une matrice d'entier int
+            mat[i][j] = caractere; // si ce n'est pas un caractere d'échappement mais un chiffre alors on le convertit en int et on le place dans la matrice
+
+        }
+    }
+    // Affichage de la matrice
+    for (i = 0; i < 10; i++) {
+
+        for (j = 0; j < 20; j++) {
+
+            //cases vides
+            if (mat[i][j] == 0){
+                printf("%c\x20", 0x0);
+            }
