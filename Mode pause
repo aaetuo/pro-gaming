@@ -1,0 +1,6 @@
+void pause() {
+    printf("Pause. Appuyez sur la touche '1' pour reprendre\n");
+    while (getch() != '1') {
+    }
+    printf("Reprise du jeu.\n");
+}
