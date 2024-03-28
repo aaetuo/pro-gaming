@@ -23,214 +23,139 @@ void deplacer_snoopy(char matrice[12][20]) { //On affiche le plateau comme s'il 
             for (j = 0; j < 20; j++) {
 
                 if (i == x && j == y) {
-                    printf("%c\x20", 0xB); // Caractère Snoopy
                 }
 
                 //Plan de travail
                 if (mat[i][j] == 0){
-                    printf("%c\x20", 0x0);
                 }
 
                 //Plaque de cuisson
 
                 if (mat[i][j] == 1){
-                    printf("%c\x20", 0x6);
                 }
 
                 //Friteuse
 
                 if (mat[i][j] == 2){
-                    printf("%c\x20", 0x1A);
                 }
 
                 //boite à pain à burger
 
                 if (mat[i][j] == 3){
-                    printf("%c\x20", 0x5);
                 }
 
                 //boite à steak brut
 
                 if (mat[i][j] == 4){
-                    printf("%c\x20", '#');
                 }
 
                 //boite à patate brute
 
                 if (mat[i][j] == 5){
-                    printf("%c\x20", 0xA);
                 }
 
                 //boite à salade brute
 
                 if (mat[i][j] == 6){
-                    printf("%c\x20", '=');
                 }
 
                 //boite à oignons brut
 
                 if (mat[i][j] == 7){
-                    printf("%c\x20", 'o');
                 }
 
                 //boite à tomate brute
 
                 if (mat[i][j] == 9){
-                    printf("%c\x20", 0xE);
                 }
 
                 //Espace de découpe
                 if (mat[i][j] == 0){
-                    printf("%c\x20", 0x0);
                 }
 
                 //Coffre à ingrédients
                 if (mat[i][j] == 0){
-                    printf("%c\x20", 0x0);
                 }
 
               //Distributeur d'assiettes
                 if (mat[i][j] == 0){
-                    printf("%c\x20", 0x0);
                 }
 
               //Poubelle
                 if (mat[i][j] == 0){
-                    printf("%c\x20", 0x0);
                 }
 
               //Sortie de cuisine
                 if (mat[i][j] == 0){
-                    printf("%c\x20", 0x0);
                 }
 
                 //Boite de sauce Barbecue
                 if (mat[i][j] == 0){
-                    printf("%c\x20", 0x0);
                 }
 
                 //boite à spaghetti crue
                 if (mat[i][j] == 0){
-                    printf("%c\x20", 0x0);
                 }
 
                 //boite à bolognaise
                 if (mat[i][j] == 0){
-                    printf("%c\x20", 0x0);
                 }
 
                 //boite à carbonara
                 if (mat[i][j] == 0){
-                    printf("%c\x20", 0x0);
                 }
 
                 //boite à poisson cru
                 if (mat[i][j] == 0){
-                    printf("%c\x20", 0x0);
                 }
 
                 //boite à pepperoni
                 if (mat[i][j] == 0){
-                    printf("%c\x20", 0x0);
                 }
 
                 //boite à fromage
                 if (mat[i][j] == 0){
-                    printf("%c\x20", 0x0);
                 }
                 
                 //boite à nems
                 if (mat[i][j] == 0){
-                    printf("%c\x20", 0x0);
                 }
               
                 //boite à riz
                 if (mat[i][j] == 0){
-                    printf("%c\x20", 0x0);
                 }
               
                 //boite à crevette
                 if (mat[i][j] == 0){
-                    printf("%c\x20", 0x0);
                 }
               
                 //boite à sushis
                 if (mat[i][j] == 0){
-                    printf("%c\x20", 0x0);
                 }
               
                 //Four
                 if (mat[i][j] == 0){
-                    printf("%c\x20", 0x0);
                 }
               
                 //Distributeur de bucket
                 if (mat[i][j] == 0){
-                    printf("%c\x20", 0x0);
                 }
 
                 //Boite à poulet cru
                 if (mat[i][j] == 0){
-                    printf("%c\x20", 0x0);
                 }
 
                 //boite à pate à pizza
                 if (mat[i][j] == 0){
-                    printf("%c\x20", 0x0);
                 }
 
                 //boite à fromage
                 if (mat[i][j] == 0){
-                    printf("%c\x20", 0x0);
                 }
 
-                //boite à fromage
-                if (mat[i][j] == 0){
-                    printf("%c\x20", 0x0);
-                }
               
             }
             printf("\n");
         }
-
-//On creer un espace vide en dessous du terrain pour que le joueur peut mettre une touche pour bouger Snoopy (plus un switchcase)
-        int touche = 0;
-        do {
-            printf(" ");
-            touche = getch();
-        } while (touche != 'i' && touche != 'j' && touche != 'k' && touche != 'l');
-
-        // Déplacement de Snoopy en fonction de la touche lue
-        switch (touche) {
-
-            case 'i': // Haut
-                if (x > 0 && !mur(mat, x - 1, y)) {
-                    matrice[x][y] = 0; // Efface l'ancienne position de Snoopy
-                    x--;
-                    matrice[x][y] = 8; // Met à jour la nouvelle position de Snoopy
-                }
-                break;
-            case 'k': // Bas
-                if (x < 9 && !mur(mat, x + 1, y)) {
-                    matrice[x][y] = 0;
-                    x++;
-                    matrice[x][y] = 8;
-                }
-                break;
-            case 'j': // Gauche
-                if (y > 0 && !mur(mat, x, y - 1)) {
-                    matrice[x][y] = 0;
-                    y--;
-                    matrice[x][y] = 8;
-                }
-                break;
-            case 'l': // Droite
-                if (y < 19 && !mur(mat, x, y + 1)) {
-                    matrice[x][y] = 0;
-                    y++;
-                    matrice[x][y] = 8;
-                }
-                break;
-        }
-    }
+}
 }
