@@ -1,4 +1,4 @@
-void deplacer_snoopy(char matrice[10][20]) { //On affiche le plateau comme s'il était avec des coordonnées permetant des deplacements cibles
+void deplacer_snoopy(char matrice[12][20]) { //On affiche le plateau comme s'il était avec des coordonnées permetant des deplacements cibles
 
     int i, j;
     char mat[12][20];
