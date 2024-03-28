@@ -22,9 +22,6 @@ void deplacer_snoopy(char matrice[12][20]) { //On affiche le plateau comme s'il 
 
             for (j = 0; j < 20; j++) {
 
-                if (i == x && j == y) {
-                }
-
                 //Plan de travail
                 if (mat[i][j] == 0){
                 }
