@@ -31,7 +31,7 @@ void affichage_plateau(int niveau) {
         printf("impossible d'ouvrir le fichier ");
     }
 
-    for (i = 0; i < 10; i++) {
+    for (i = 0; i < 12; i++) {
         for (j = 0; j < 20; j++) {
             curseur = fgetc(fichier); // fgetc premet de lire un caractere du fichier txt
             while (curseur != EOF && (curseur < '0' || curseur >'9')) { // EOF est renvoyé par getfc si un caractère d'échappement est atteint (caractere autre qu'un chiffre)
@@ -52,7 +52,7 @@ void affichage_plateau(int niveau) {
         }
     }
     // Affichage de la matrice
-    for (i = 0; i < 10; i++) {
+    for (i = 0; i < 12; i++) {
 
         for (j = 0; j < 20; j++) {
 
@@ -60,3 +60,5 @@ void affichage_plateau(int niveau) {
             if (mat[i][j] == 0){
                 printf("%c\x20", 0x0);
             }
+}
+}
